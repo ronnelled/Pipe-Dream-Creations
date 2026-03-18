@@ -9,3 +9,6 @@ Contact form
 Responsive design
 Basic branding
 Footer
+## Prototype
+Figma Prototype Link:
+https://www.figma.com/make/exyg7w3carNCBZSGAFUcir/Business-website-design?t=tyYHzVZLpYLWjOle-1
