@@ -1,0 +1,14 @@
+pipe-dream-website/
+│
+├── index.html
+├── css/
+├── js/
+│
+├── docs/
+│   ├── sitemap.md
+│   ├── wireframes.md
+│   ├── usability-test-plan.md
+│
+└── README.md
+
+Add Week 3 design documents (site map, wireframes, usability test plan)
