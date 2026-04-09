@@ -6,25 +6,45 @@
 </head>
 <body>
 
+<body>
+
+<a href="#main-content">Skip to main content</a>
+
 <header>
-  <nav>
-    <h1>Pipe Dream</h1>
+  <nav aria-label="Main navigation">
+    <h1>Contact Us</h1>
     <a href="../index.html">Home</a>
-    <a href="products.html">Products</a>
     <a href="about.html">About</a>
+    <a href="products.html">Products</a>
     <a href="faq.html">FAQ</a>
-    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
-<main>
-  <h2>Contacts</h2>
-  <p>Coming soon...</p>
+<main id="main-content">
+
+  <h2>Get in Touch</h2>
+
+  <form id="contact-form">
+    
+    <label for="name">Name</label>
+    <input id="name" type="text" required>
+
+    <label for="email">Email</label>
+    <input id="email" type="email" required>
+
+    <label for="message">Message</label>
+    <textarea id="message" required></textarea>
+
+    <button type="submit">Send Message</button>
+
+    <p id="form-status" aria-live="polite"></p>
+
+  </form>
+
 </main>
 
 <footer>
-  <p>© 2026 Pipe Dream</p>
+  <p>&copy; 2026 Pipe Dream Creations</p>
 </footer>
 
 </body>
-</html>
