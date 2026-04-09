@@ -1,30 +1,70 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Pipe Dream</title>
-  <link rel="stylesheet" href="css/styles.css">
-</head>
 <body>
 
+<!-- Skip Link (Accessibility) -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Header / Navigation -->
 <header>
-  <nav>
-    <h1>Pipe Dream</h1>
-    <a href="index.html">Home</a>
-    <a href="pages/products.html">Products</a>
-    <a href="pages/about.html">About</a>
-    <a href="pages/faq.html">FAQ</a>
-    <a href="pages/contact.html">Contact</a>
+  <nav aria-label="Main navigation">
+    <h1>Pipe Dream Creations</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="pages/about.html">About</a></li>
+      <li><a href="pages/products.html">Products</a></li>
+      <li><a href="pages/contact.html">Contact</a></li>
+      <li><a href="pages/faq.html">FAQ</a></li>
+    </ul>
   </nav>
 </header>
 
-<main>
-  <h2>Welcome to Pipe Dream</h2>
-  <p>Homepage</p>
+<!-- Main Content -->
+<main id="main-content">
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Handmade Pipe Cleaner Creations</h2>
+    <p>
+      Pipe Dream Creations offers unique, handcrafted designs made from pipe cleaners,
+      including flowers, gifts, and custom creations for any occasion.
+    </p>
+
+    <!-- Button to products -->
+    <a href="pages/products.html" class="btn">Shop Our Creations</a>
+  </section>
+
+  <!-- Featured Products Section -->
+  <section class="featured">
+    <h2>Featured Creations</h2>
+
+    <div class="product-grid">
+
+      <div class="product-card">
+        <img src="images/flower.jpg" alt="Colorful pipe cleaner flower bouquet">
+        <h3>Flower Bouquet</h3>
+        <p>Bright and handmade floral designs perfect for gifts.</p>
+      </div>
+
+      <div class="product-card">
+        <img src="images/heart.jpg" alt="Pipe cleaner heart decoration">
+        <h3>Heart Design</h3>
+        <p>Creative heart-shaped designs for special occasions.</p>
+      </div>
+
+      <div class="product-card">
+        <img src="images/custom.jpg" alt="Custom pipe cleaner design">
+        <h3>Custom Orders</h3>
+        <p>Personalized creations made just for you.</p>
+      </div>
+
+    </div>
+  </section>
+
 </main>
 
+<!-- Footer -->
 <footer>
-  <p>© 2026 Pipe Dream</p>
+  <p>&copy; 2026 Pipe Dream Creations</p>
+  <p>Follow us on social media</p>
 </footer>
 
 </body>
-</html>
