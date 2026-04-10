@@ -7,6 +7,9 @@ on:
     branches: [main]
   workflow_dispatch:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 permissions:
   contents: read
   pages: write
@@ -22,28 +25,44 @@ jobs:
 
     steps:
       - name: Check out repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Verify required pages exist
         run: |
-          test -f index.html
-          test -f pages/about.html
-          test -f pages/products.html
-          test -f pages/contact.html
-          test -f pages/faq.html
+          test -f index.html || (echo "Missing index.html" && exit 1)
+          test -f pages/about.html || (echo "Missing pages/about.html" && exit 1)
+          test -f pages/products.html || (echo "Missing pages/products.html" && exit 1)
+          test -f pages/contact.html || (echo "Missing pages/contact.html" && exit 1)
+          test -f pages/faq.html || (echo "Missing pages/faq.html" && exit 1)
 
-      - name: Verify CSS/JS files if referenced
+      - name: Verify stylesheet exists
         run: |
-          if grep -R 'css/styles.css' .; then test -f "Week 5/css/styles.css" || test -f "css/styles.css"; fi
-          if grep -R 'js/main.js' .; then test -f "Week 5/js/main.js" || test -f "js/main.js"; fi
+          if grep -R 'Week 5/css/styles.css' index.html pages/*.html; then
+            test -f "Week 5/css/styles.css" || (echo "Referenced Week 5/css/styles.css but file is missing" && exit 1)
+          fi
+          if grep -R '../css/styles.css\|css/styles.css' index.html pages/*.html; then
+            test -f "css/styles.css" || (echo "Referenced css/styles.css but file is missing" && exit 1)
+          fi
+
+      - name: Verify JS file if referenced
+        run: |
+          if grep -R 'Week 5/js/main.js' index.html pages/*.html; then
+            test -f "Week 5/js/main.js" || (echo "Referenced Week 5/js/main.js but file is missing" && exit 1)
+          fi
+          if grep -R '../js/main.js\|js/main.js' index.html pages/*.html; then
+            test -f "js/main.js" || (echo "Referenced js/main.js but file is missing" && exit 1)
+          fi
 
       - name: Fail if placeholder text exists
         run: |
-          ! grep -R -i "coming soon" index.html pages/*.html
+          if grep -R -i "coming soon" index.html pages/*.html; then
+            echo "Placeholder text 'Coming soon' still exists."
+            exit 1
+          fi
 
-      - name: Check links exist
+      - name: Show links for debugging
         run: |
-          grep -R 'href=' index.html pages/*.html
+          grep -R 'href=' index.html pages/*.html || true
 
       - name: Print file tree
         run: find . -maxdepth 4 -type f
@@ -59,7 +78,7 @@ jobs:
 
     steps:
       - name: Check out repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -68,6 +87,10 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
       - name: Deploy to GitHub Pages
         id: deployment
