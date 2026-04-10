@@ -18,6 +18,24 @@ body {
   font-family: Arial, sans-serif;
   background-color: #faf8f5;
   color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* Accessibility */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  background: #ffffff;
+  color: #000000;
+  padding: 0.5rem 1rem;
+  z-index: 1000;
+  border: 2px solid #000000;
 }
 
 /* Layout */
@@ -32,6 +50,10 @@ footer {
   width: 90%;
   max-width: var(--max-width);
   margin: 0 auto;
+}
+
+main {
+  padding: 30px 0;
 }
 
 /* Navigation */
@@ -50,18 +72,17 @@ footer {
   font-weight: bold;
 }
 
-.nav-list a:hover {
+.nav-list a:hover,
+.nav-list a:focus {
   text-decoration: underline;
 }
 
-/* Main content */
-main {
-  padding: 30px 0;
-}
-
+/* Main sections */
 .hero,
 .section,
-.card {
+.card,
+.product-card,
+.faq-item {
   background: var(--white);
   padding: 20px;
   border-radius: var(--radius);
@@ -69,8 +90,18 @@ main {
   border: 1px solid #ddd;
 }
 
-/* Grid layout */
-.card-grid {
+.hero {
+  text-align: center;
+  padding: 3rem 1.5rem;
+}
+
+.content-section {
+  padding: 2rem 0 3rem;
+}
+
+/* Grid layouts */
+.card-grid,
+.product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
@@ -88,7 +119,8 @@ main {
   cursor: pointer;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:focus {
   opacity: 0.9;
 }
 
@@ -100,55 +132,24 @@ textarea {
   margin-bottom: 10px;
   border-radius: var(--radius);
   border: 1px solid #ccc;
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
 }
 
 /* Footer */
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  top: auto;
-}
-
-.skip-link:focus {
-  left: 1rem;
-  top: 1rem;
-  background: #ffffff;
-  color: #000000;
-  padding: 0.5rem 1rem;
-  z-index: 1000;
-  border: 2px solid #000000;
-}
-
-.container {
-  width: 90%;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.hero {
-  padding: 3rem 0;
-  text-align: center;
-}
-
-.content-section {
-  padding: 2rem 0 3rem;
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-}
-
-.product-card,
-.faq-item {
-  background: #ffffff;
-  padding: 1.25rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  margin-bottom: 1rem;
-}
 footer p {
+  text-align: center;
+  margin: 0;
+}
   text-align: center;
   margin: 0;
 }
