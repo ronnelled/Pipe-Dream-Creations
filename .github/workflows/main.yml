@@ -32,26 +32,27 @@ jobs:
           test -f pages/contact.html
           test -f pages/faq.html
 
-      - name: Verify asset folders/files if referenced
+      - name: Verify CSS/JS files if referenced
         run: |
           if grep -R 'css/styles.css' .; then test -f "Week 5/css/styles.css" || test -f "css/styles.css"; fi
           if grep -R 'js/main.js' .; then test -f "Week 5/js/main.js" || test -f "js/main.js"; fi
 
-      - name: Fail if placeholder text remains
+      - name: Fail if placeholder text exists
         run: |
           ! grep -R -i "coming soon" index.html pages/*.html
 
-      - name: Check for href links
+      - name: Check links exist
         run: |
           grep -R 'href=' index.html pages/*.html
 
-      - name: Print file tree for debugging
+      - name: Print file tree
         run: find . -maxdepth 4 -type f
 
   deploy:
     if: github.ref == 'refs/heads/main'
     needs: validate
     runs-on: ubuntu-latest
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -69,9 +70,5 @@ jobs:
           path: .
 
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-        id: deployment
-        uses: actions/deploy-pages@v4
         id: deployment
         uses: actions/deploy-pages@v4
