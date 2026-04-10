@@ -35,21 +35,21 @@ jobs:
           test -f pages/contact.html || (echo "Missing pages/contact.html" && exit 1)
           test -f pages/faq.html || (echo "Missing pages/faq.html" && exit 1)
 
-      - name: Verify stylesheet exists
+      - name: Verify stylesheet exists if referenced
         run: |
           if grep -R 'Week 5/css/styles.css' index.html pages/*.html; then
             test -f "Week 5/css/styles.css" || (echo "Referenced Week 5/css/styles.css but file is missing" && exit 1)
           fi
-          if grep -R '../css/styles.css\|css/styles.css' index.html pages/*.html; then
+          if grep -R 'css/styles.css' index.html pages/*.html; then
             test -f "css/styles.css" || (echo "Referenced css/styles.css but file is missing" && exit 1)
           fi
 
-      - name: Verify JS file if referenced
+      - name: Verify script exists if referenced
         run: |
           if grep -R 'Week 5/js/main.js' index.html pages/*.html; then
             test -f "Week 5/js/main.js" || (echo "Referenced Week 5/js/main.js but file is missing" && exit 1)
           fi
-          if grep -R '../js/main.js\|js/main.js' index.html pages/*.html; then
+          if grep -R 'js/main.js' index.html pages/*.html; then
             test -f "js/main.js" || (echo "Referenced js/main.js but file is missing" && exit 1)
           fi
 
@@ -60,10 +60,6 @@ jobs:
             exit 1
           fi
 
-      - name: Show links for debugging
-        run: |
-          grep -R 'href=' index.html pages/*.html || true
-
       - name: Print file tree
         run: find . -maxdepth 4 -type f
 
@@ -71,7 +67,6 @@ jobs:
     if: github.ref == 'refs/heads/main'
     needs: validate
     runs-on: ubuntu-latest
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -87,10 +82,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
 
       - name: Deploy to GitHub Pages
         id: deployment
