@@ -4,68 +4,129 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Products | Pipe Dream Creations</title>
+  <meta
+    name="description"
+    content="Browse handmade pipe cleaner flowers, custom gifts, event decorations, and themed creations from Pipe Dream Creations."
+  />
   <link rel="stylesheet" href="../Week 5/css/styles.css" />
+  <script src="../Week 5/js/main.js" defer></script>
 </head>
-
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-<header>
-  <div class="container">
-    <h1>Pipe Dream Creations</h1>
-    <nav>
-      <ul class="nav-list">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  <header class="site-header">
+    <div class="container">
+      <nav aria-label="Main navigation" class="site-nav">
+        <a href="../index.html" class="site-brand">Pipe Dream Creations</a>
 
-<main id="main-content" class="container">
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          Menu
+        </button>
 
-  <section class="hero">
-    <h2>Our Products</h2>
-    <p>Browse our handmade creations and custom pieces.</p>
-  </section>
-
-  <section class="product-grid">
-
-    <div class="product-card">
-      <h3>Pipe Cleaner Flowers</h3>
-      <p>Colorful handmade floral designs perfect for gifts and décor.</p>
+        <ul class="nav-list" id="primary-nav">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="products.html" aria-current="page">Products</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <div class="product-card">
-      <h3>Custom Gifts</h3>
-      <p>Personalized creations designed for special occasions.</p>
+  <main id="main-content">
+    <section class="hero hero-small">
+      <div class="container hero-content">
+        <p class="eyebrow">Browse Our Collection</p>
+        <h1>Our Products</h1>
+        <p class="hero-text">
+          Browse our handmade creations and custom pieces made for gifts, events,
+          and special occasions.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Product Categories</h2>
+          <p>Choose from ready-made favorites or request a custom design.</p>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <img
+              src="../images/flower.jpg"
+              alt="Handmade pipe cleaner flowers"
+              width="360"
+              height="260"
+              loading="lazy"
+              decoding="async"
+            />
+            <h3>Pipe Cleaner Flowers</h3>
+            <p>Colorful handmade floral designs perfect for gifts and décor.</p>
+          </article>
+
+          <article class="product-card">
+            <img
+              src="../images/custom.jpg"
+              alt="Custom handmade pipe cleaner gift"
+              width="360"
+              height="260"
+              loading="lazy"
+              decoding="async"
+            />
+            <h3>Custom Gifts</h3>
+            <p>Personalized creations designed for special occasions.</p>
+          </article>
+
+          <article class="product-card">
+            <img
+              src="../images/heart.jpg"
+              alt="Pipe cleaner event decoration"
+              width="360"
+              height="260"
+              loading="lazy"
+              decoding="async"
+            />
+            <h3>Event Decorations</h3>
+            <p>Decorations for parties, celebrations, and themed events.</p>
+          </article>
+
+          <article class="product-card">
+            <img
+              src="../images/custom.jpg"
+              alt="Creative themed pipe cleaner character design"
+              width="360"
+              height="260"
+              loading="lazy"
+              decoding="async"
+            />
+            <h3>Character Designs</h3>
+            <p>Creative themed pieces inspired by fun ideas and styles.</p>
+          </article>
+        </div>
+
+        <div class="callout">
+          <h2>Need something custom?</h2>
+          <p>
+            We create personalized pieces for gifts, parties, events, and special requests.
+          </p>
+          <a href="contact.html" class="btn">Contact to Order</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 Pipe Dream Creations</p>
     </div>
-
-    <div class="product-card">
-      <h3>Event Decorations</h3>
-      <p>Decorations for parties, celebrations, and themed events.</p>
-    </div>
-
-    <div class="product-card">
-      <h3>Character Designs</h3>
-      <p>Creative themed pieces inspired by fun ideas and styles.</p>
-    </div>
-
-  </section>
-
-</main>
-
-<footer>
-  <div class="container">
-    <p>&copy; 2026 Pipe Dream Creations</p>
-  </div>
-</footer>
-
-</body>
-</html>
   </footer>
 </body>
 </html>
