@@ -12,3 +12,13 @@ Footer
 ## Prototype
 Figma Prototype Link:
 https://www.figma.com/make/exyg7w3carNCBZSGAFUcir/Business-website-design?t=tyYHzVZLpYLWjOle-1
+## Final Release Information
+
+Production URL: [https://github.com/ronnelled/Pipe-Dream-Creations]
+
+Final release materials are located in the `Week 12` folder. This includes:
+- Final report
+- Handoff package
+- Final presentation script
+- Retrospective
+- Security, accessibility, and performance evidence
